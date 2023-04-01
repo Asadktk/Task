@@ -51,8 +51,6 @@ class BookController extends Controller
 
         Book::create($formFields);
 
-
-
         return redirect()->route('books.index')->with('success', 'Book created successfully.');
     }
 
@@ -81,7 +79,6 @@ class BookController extends Controller
         if ($book->user_id != auth()->id()) {
             abort(403, 'Unauthorized Action');
         }
-
 
         $formFields = $request->validate(
             [
